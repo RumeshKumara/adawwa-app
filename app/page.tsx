@@ -75,7 +75,7 @@ export default function Home() {
 
       <main className={`invitation-shell ${showIntro ? 'invitation-shell--hidden' : 'invitation-shell--visible'}`}>
         <h1 className="invitation-title invitation-title--accent" lang="si">
-          අඩ්ව්ව
+          අඩව්ව
         </h1>
         <div className="invitation-divider" aria-hidden="true" />
         <p className="invitation-datetime">
