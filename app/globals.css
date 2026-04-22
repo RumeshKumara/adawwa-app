@@ -1,26 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Sans+Sinhala:wght@500;600;700&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "Apex-A.Pura-036";
+  src: url("/fonts/apex-a.pura-036.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+:root {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #090704;
+  color: #f7d976;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+:lang(si) {
+  font-family: "Apex-A.Pura-036", "Noto Sans Sinhala", serif;
+}
+
+:root {
+  --bg-black: #090704;
+  --gold-soft: #f5cb68;
+  --gold-deep: #a5701f;
+  --gold-dark: #2a1a04;
+}
+
+.video-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+  transition: opacity 420ms ease, visibility 420ms ease;
+}
+
+.video-loader--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.video-loader__media {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.invitation-shell {
+  position: relative;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 1.25rem;
+  text-align: center;
+  background: radial-gradient(circle at 20% 20%, rgba(245, 203, 104, 0.2) 0%, transparent 44%),
+    radial-gradient(circle at 85% 10%, rgba(165, 112, 31, 0.25) 0%, transparent 52%),
+    linear-gradient(145deg, #050402 10%, #120b03 42%, #1a1205 70%, #050402 100%);
+  isolation: isolate;
+  overflow: hidden;
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+
+.invitation-shell--hidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.invitation-shell--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.invitation-shell::before,
+.invitation-shell::after {
+  content: "";
+  position: absolute;
+  width: 75vmax;
+  height: 75vmax;
+  border-radius: 9999px;
+  filter: blur(64px);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.invitation-shell::before {
+  top: -35vmax;
+  left: -28vmax;
+  background: radial-gradient(circle, var(--gold-soft) 0%, rgba(245, 203, 104, 0) 65%);
+  animation: driftGlowA 11s ease-in-out infinite alternate;
+}
+
+.invitation-shell::after {
+  right: -28vmax;
+  bottom: -40vmax;
+  background: radial-gradient(circle, var(--gold-deep) 0%, rgba(165, 112, 31, 0) 68%);
+  animation: driftGlowB 13s ease-in-out infinite alternate;
+}
+
+.invitation-eyebrow {
+  margin: 0;
+  color: #f2cb72;
+  letter-spacing: 0.24em;
+  font-size: 0.7rem;
+  font-family: "Cinzel", "Times New Roman", serif;
+}
+
+.invitation-title {
+  margin: 0;
+  color: #ffe39a;
+  letter-spacing: 0.03em;
+  font-size: clamp(2.75rem, 16vw, 4.4rem);
+  line-height: 1.04;
+  font-weight: 900;
+  font-family: "Apex-A.Pura-036", "Noto Sans Sinhala", serif;
+  text-shadow:
+    0 0 10px rgba(255, 225, 140, 0.7),
+    0 0 24px rgba(245, 203, 104, 0.55),
+    0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+.invitation-title--accent {
+  position: relative;
+  display: inline-block;
+  padding: 0.05em 0.16em 0.14em;
+  border-radius: 0.3em;
+  background: linear-gradient(180deg, #fff4c8 0%, #ffd977 58%, #f0b643 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 18px rgba(255, 211, 107, 0.45));
+  animation: titlePulse 2.8s ease-in-out infinite;
+}
+
+.invitation-title--accent::after {
+  content: "";
+  position: absolute;
+  inset: 26% -2% 10%;
+  z-index: -1;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 219, 116, 0.42) 0%, rgba(255, 219, 116, 0) 72%);
+  filter: blur(12px);
+}
+
+.invitation-divider {
+  width: min(14rem, 74%);
+  height: 1px;
+  margin: 0.45rem 0 0.35rem;
+  background: linear-gradient(90deg, rgba(245, 203, 104, 0), rgba(245, 203, 104, 0.9), rgba(245, 203, 104, 0));
+}
+
+.invitation-datetime {
+  margin: 0;
+  color: #f1cf7e;
+  letter-spacing: 0.2em;
+  font-size: 0.68rem;
+  line-height: 1.8;
+  font-family: "Cinzel", "Times New Roman", serif;
+}
+
+.invitation-datetime span {
+  display: block;
+  margin-top: 0.28rem;
+  font-size: clamp(0.84rem, 3.2vw, 1rem);
+  letter-spacing: 0.08em;
+  color: #ffd774;
+}
+
+@keyframes driftGlowA {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(8%, 10%, 0) scale(1.1);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes driftGlowB {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+  to {
+    transform: translate3d(-12%, -10%, 0) scale(1.16);
+  }
+}
+
+@keyframes titlePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 14px rgba(255, 211, 107, 0.42));
+  }
+  50% {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 22px rgba(255, 211, 107, 0.66));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-loader,
+  .invitation-shell {
+    transition: none !important;
+  }
+
+  .invitation-shell::before,
+  .invitation-shell::after {
+    animation: none;
+  }
+
+  .invitation-title--accent {
+    animation: none;
+  }
+}
+
+@supports (height: 100dvh) {
+  body,
+  .video-loader,
+  .video-loader__media,
+  .invitation-shell {
+    min-height: 100dvh;
+    height: 100dvh;
+  }
+}
+
+@media (max-width: 768px) {
+  .invitation-title {
+    font-size: clamp(2.55rem, 17vw, 4rem);
+  }
+
+  .invitation-datetime {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
 }
