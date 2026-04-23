@@ -106,7 +106,7 @@ export default function Home() {
           <h1
             className="bg-gradient-to-b from-[#fff3bd] via-[#f6b450] to-[#8a4e15] bg-clip-text px-3 text-[clamp(4rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] text-transparent drop-shadow-[0_8px_20px_rgba(0,0,0,0.65)]"
             lang="si"
-            style={{ fontFamily: 'Apex-A.Pura-036, Noto Sans Sinhala, serif' }}
+            style={{ fontFamily: 'Apex' }}
           >
             අඩව්ව
           </h1>
