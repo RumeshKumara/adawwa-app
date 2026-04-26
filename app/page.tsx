@@ -1,134 +1,110 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import {
+  buildTree, genStars, genBats, spawnParticles, drawFrame,
+  type Star, type BatState, type Particle,
+} from '@/app/lib/cinema';
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
-  const fallbackTimerRef = useRef<number | null>(null);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  const clearFallbackTimer = useCallback(() => {
-    if (fallbackTimerRef.current !== null) {
-      window.clearTimeout(fallbackTimerRef.current);
-      fallbackTimerRef.current = null;
-    }
-  }, []);
-
-  const startFallbackTimer = useCallback((delayMs: number) => {
-    clearFallbackTimer();
-    fallbackTimerRef.current = window.setTimeout(() => {
-      setShowIntro(false);
-    }, delayMs);
-  }, [clearFallbackTimer]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    startFallbackTimer(120000);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-    const video = videoRef.current;
-    if (video && video.paused) {
-      void video.play().catch(() => {
-        // Keep fallback active if autoplay is blocked.
-      });
-    }
+    const stars: Star[]     = genStars(300);
+    const bats: BatState[]  = genBats(9);
+    const particles: Particle[] = [];
+    let treeL: HTMLCanvasElement | null = null;
+    let treeR: HTMLCanvasElement | null = null;
+    let particlesSpawned = false;
+    let raf = 0;
 
-    return () => {
-      clearFallbackTimer();
+    const resize = () => {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      treeL = buildTree('left',  canvas.width, canvas.height);
+      treeR = buildTree('right', canvas.width, canvas.height);
     };
-  }, [startFallbackTimer, clearFallbackTimer]);
+    resize();
+    window.addEventListener('resize', resize);
 
-  const handleVideoMetadata = (event: React.SyntheticEvent<HTMLVideoElement>) => {
-    const durationSeconds = event.currentTarget.duration;
+    const start   = performance.now();
+    let prevNow   = start;
 
-    if (!Number.isFinite(durationSeconds) || durationSeconds <= 0) {
-      return;
-    }
+    const loop = () => {
+      const now = performance.now();
+      const t   = (now - start) / 1000;
+      const dt  = Math.min(0.05, (now - prevNow) / 1000);
+      prevNow   = now;
 
-    startFallbackTimer(Math.ceil(durationSeconds * 1000) + 2000);
-  };
+      if (treeL && treeR) {
+        /* Spawn golden particles when chest opens */
+        if (t > 6.9 && !particlesSpawned) {
+          particles.push(...spawnParticles(canvas.width * 0.50, canvas.height * 0.62, 70));
+          particlesSpawned = true;
+        }
+        /* Cull dead particles */
+        for (let i = particles.length - 1; i >= 0; i--)
+          if (particles[i].life >= particles[i].ml) particles.splice(i, 1);
 
-  const handleVideoEnd = () => {
-    clearFallbackTimer();
-    setShowIntro(false);
-  };
+        drawFrame(ctx, canvas.width, canvas.height, t, treeL, treeR, stars, bats, particles, dt);
+      }
 
-  const handleVideoError = () => {
-    clearFallbackTimer();
-    setShowIntro(false);
-  };
+      if (t < 11.8) {
+        raf = requestAnimationFrame(loop);
+      } else {
+        setShowIntro(false);
+      }
+    };
 
-  const mainVisibilityClasses = showIntro
-    ? 'opacity-0 translate-y-3 pointer-events-none'
-    : 'opacity-100 translate-y-0 pointer-events-auto';
+    raf = requestAnimationFrame(loop);
+    return () => { window.removeEventListener('resize', resize); cancelAnimationFrame(raf); };
+  }, []);
 
-  const invitationRevealClasses = showIntro ? '' : 'invitation-content-enter';
-
-  const torchRevealClasses = showIntro ? '' : 'invitation-torch-enter';
-
-  const loaderVisibilityClasses = showIntro
-    ? 'opacity-100 visible'
-    : 'opacity-0 invisible pointer-events-none';
+  const mainCls   = showIntro ? 'opacity-0 translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0 pointer-events-auto';
+  const loaderCls = showIntro ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none';
+  const revealCls = showIntro ? '' : 'invitation-content-enter';
+  const torchCls  = showIntro ? '' : 'invitation-torch-enter';
 
   return (
     <>
+      {/* ── Cinematic Canvas Loader ── */}
       <div
-        className={`fixed inset-0 z-50 h-dvh w-screen overflow-hidden bg-black transition-all duration-500 ${loaderVisibilityClasses}`}
+        className={`fixed inset-0 z-50 overflow-hidden transition-opacity duration-700 ${loaderCls}`}
         aria-hidden={!showIntro}
       >
-        <video
-          ref={videoRef}
-          className="h-dvh w-screen object-cover object-center"
-          src="/loading.mp4"
-          autoPlay
-          muted
-          playsInline
-          preload="auto"
-          onLoadedMetadata={handleVideoMetadata}
-          onEnded={handleVideoEnd}
-          onError={handleVideoError}
-        />
+        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       </div>
 
-      <main
-        className={`relative isolate min-h-dvh overflow-hidden bg-[#02070d] px-6 py-8 text-center text-[#fdf2d0] transition-all duration-700 sm:px-10 sm:py-10 ${mainVisibilityClasses}`}
-      >
+      {/* ── Main content ── */}
+      <main className={`relative isolate min-h-dvh overflow-hidden bg-[#02070d] px-6 py-8 text-center text-[#fdf2d0] transition-all duration-700 sm:px-10 sm:py-10 ${mainCls}`}>
         <div className="pointer-events-none absolute inset-0 bg-[url('/assets/back-stage.jpeg')] bg-cover bg-center" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,22,36,0.14)_0%,rgba(8,18,30,0.38)_32%,rgba(4,11,19,0.76)_67%,rgba(1,5,10,0.98)_100%)]" />
 
-        <div className={`invitation-torch invitation-torch-left pointer-events-none fixed z-20 ${torchRevealClasses}`} aria-hidden="true">
-          <span className="invitation-torch-flame" />
-          <span className="invitation-torch-stick" />
+        <div className={`invitation-torch invitation-torch-left pointer-events-none fixed z-20 ${torchCls}`} aria-hidden="true">
+          <span className="invitation-torch-flame" /><span className="invitation-torch-stick" />
         </div>
-        <div className={`invitation-torch invitation-torch-right pointer-events-none fixed z-20 ${torchRevealClasses}`} aria-hidden="true">
-          <span className="invitation-torch-flame" />
-          <span className="invitation-torch-stick" />
+        <div className={`invitation-torch invitation-torch-right pointer-events-none fixed z-20 ${torchCls}`} aria-hidden="true">
+          <span className="invitation-torch-flame" /><span className="invitation-torch-stick" />
         </div>
 
-        <section className={`invitation-content relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-3xl flex-col items-center justify-center gap-3 pt-14 sm:gap-4 sm:pt-20 ${invitationRevealClasses}`}>
-          <p className='font-["Firlest","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>
-            WE CORDIALLY
-          </p>
-          <p className='font-["Firlest","Apex",serif] text-5xl font-semibold tracking-[0.12em] text-white sm:text-7xl'>
-            INVITE YOU TO
-          </p>
+        <section className={`invitation-content relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-3xl flex-col items-center justify-center gap-3 pt-14 sm:gap-4 sm:pt-20 ${revealCls}`}>
+          <p className='font-["Firlest","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>WE CORDIALLY</p>
+          <p className='font-["Firlest","Apex",serif] text-5xl font-semibold tracking-[0.12em] text-white sm:text-7xl'>INVITE YOU TO</p>
 
-          <h1
-            className="font-apex px-3 text-[clamp(4rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158, 108, 16, 1)] sm:text-[clamp(5rem,12vw,10rem)]"
-            lang="si"
-          >
-            <span className="fire">අ</span>
-            <span className="fire">ඩ</span>
-            <span className="fire">ව්</span>
-            <span className="fire">ව</span>
+          <h1 className="font-apex px-3 text-[clamp(4rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158,108,16,1)] sm:text-[clamp(5rem,12vw,10rem)]" lang="si">
+            <span className="fire">අ</span><span className="fire">ඩ</span><span className="fire">ව්</span><span className="fire">ව</span>
           </h1>
 
-          <p className='-mt-2 text-sm tracking-[0.6em] text-[#f5e6b4] sm:text-base'>
-            ADAWWA
-          </p>
+          <p className='-mt-2 text-sm tracking-[0.6em] text-[#f5e6b4] sm:text-base'>ADAWWA</p>
 
-          <p className='mt-2 max-w-2xl  text-xs  leading-relaxed tracking-[0.06em] text-white sm:text-[1.6rem]'>
-            AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF
-            <br />
-            SRI LANKAN TROPICAL MUSIC
+          <p className='mt-2 max-w-2xl text-xs leading-relaxed tracking-[0.06em] text-white sm:text-[1.6rem]'>
+            AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF<br />SRI LANKAN TROPICAL MUSIC
           </p>
 
           <div className='mt-2 font-["Firlest","Apex",serif] text-[#fff4db]'>
