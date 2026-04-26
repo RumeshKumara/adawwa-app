@@ -107,20 +107,21 @@ export default function Home() {
             AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF<br />SRI LANKAN TROPICAL MUSIC
           </p>
 
-          <div className='mt-2 font-["Firlest","Apex",serif] text-[#fff4db]'>
+          <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
             <p className="text-4xl tracking-[0.04em] sm:text-6xl">ON</p>
-            <p className="mt-1 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">3RD OF APRIL</p>
+            <p className="mt-2 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-2xl text-yellow-400 mx-3 tracking-tighter -tracking-wider absolute  top-8 transform -translate-x-1/2 ">th</span> <span className='ml-8'>OF APRIL</span></p>
           </div>
 
-          <div className='mt-2 font-["Firlest","Apex",serif] text-[#ffefc8]'>
+          <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
             <p className="text-4xl tracking-[0.04em] sm:text-6xl">FROM</p>
             <p className="mt-1 text-6xl font-semibold tracking-[0.08em] sm:text-8xl">06.30 P.M.</p>
             <p className="text-lg tracking-[0.18em] text-[#e8b24d] sm:text-3xl">ONWARDS</p>
           </div>
 
-          <div className='mt-2 font-["Firlest","Apex",serif] text-[#fff4db]'>
+          <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
             <p className="text-4xl tracking-[0.04em] sm:text-6xl">AT</p>
-            <p className="mt-1 text-6xl font-semibold tracking-[0.05em] sm:text-8xl">THE MAIN CANTEEN</p>
+            <p className="mt-1 text-6xl font-semibold tracking-[0.10em] sm:text-8xl">THE MAIN</p>
+            <p className="mt-2 text-6xl font-semibold tracking-[0.10em] sm:text-8xl">CANTEEN</p>
           </div>
 
           <p className='mt-3 max-w-3xl font-["Firlest","Apex",serif] text-[0.86rem] font-semibold uppercase leading-tight tracking-[0.04em] text-[#f7e4bf] sm:text-3xl'>
