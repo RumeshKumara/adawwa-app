@@ -60,6 +60,10 @@ export default function Home() {
     ? 'opacity-0 translate-y-3 pointer-events-none'
     : 'opacity-100 translate-y-0 pointer-events-auto';
 
+  const invitationRevealClasses = showIntro ? '' : 'invitation-content-enter';
+
+  const torchRevealClasses = showIntro ? '' : 'invitation-torch-enter';
+
   const loaderVisibilityClasses = showIntro
     ? 'opacity-100 visible'
     : 'opacity-0 invisible pointer-events-none';
@@ -85,21 +89,21 @@ export default function Home() {
       </div>
 
       <main
-        className={`relative isolate min-h-dvh overflow-hidden bg-[#02070d] px-6 py-8 text-center text-[#fdf2d0] transition-all duration-500 sm:px-10 sm:py-10 ${mainVisibilityClasses}`}
+        className={`relative isolate min-h-dvh overflow-hidden bg-[#02070d] px-6 py-8 text-center text-[#fdf2d0] transition-all duration-700 sm:px-10 sm:py-10 ${mainVisibilityClasses}`}
       >
         <div className="pointer-events-none absolute inset-0 bg-[url('/assets/back-stage.jpeg')] bg-cover bg-center" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,22,36,0.14)_0%,rgba(8,18,30,0.38)_32%,rgba(4,11,19,0.76)_67%,rgba(1,5,10,0.98)_100%)]" />
 
-        <div className="invitation-torch invitation-torch-left pointer-events-none fixed z-20" aria-hidden="true">
+        <div className={`invitation-torch invitation-torch-left pointer-events-none fixed z-20 ${torchRevealClasses}`} aria-hidden="true">
           <span className="invitation-torch-flame" />
           <span className="invitation-torch-stick" />
         </div>
-        <div className="invitation-torch invitation-torch-right pointer-events-none fixed z-20" aria-hidden="true">
+        <div className={`invitation-torch invitation-torch-right pointer-events-none fixed z-20 ${torchRevealClasses}`} aria-hidden="true">
           <span className="invitation-torch-flame" />
           <span className="invitation-torch-stick" />
         </div>
 
-        <section className="relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-3xl flex-col items-center justify-center gap-3 pt-14 sm:gap-4 sm:pt-20">
+        <section className={`invitation-content relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-3xl flex-col items-center justify-center gap-3 pt-14 sm:gap-4 sm:pt-20 ${invitationRevealClasses}`}>
           <p className='font-["Firlest","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>
             WE CORDIALLY
           </p>
