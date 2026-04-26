@@ -502,3 +502,212 @@ body {
   .bat-1,.bat-2,.bat-3,.bat-4,.bat-5,.bat-6,.bat-7 { animation: none; }
   .mist-a,.mist-b,.mist-c { animation: none; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   SVG LOADING OVERLAY  –  mystical sigil splash screen
+══════════════════════════════════════════════════════════ */
+
+.svg-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #02000a;
+  animation: svgLoaderFadeOut 0.55s ease-in 2.4s forwards;
+  pointer-events: none;
+}
+
+.svg-loader-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 50%, rgba(120,40,0,0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 120% 55% at 50% 100%, rgba(50,10,0,0.55) 0%, transparent 70%);
+  animation: svgBgPulse 2.8s ease-in-out infinite;
+}
+
+/* ── Sigil ── */
+.svg-loader-sigil {
+  width: min(72vmin, 340px);
+  height: min(72vmin, 340px);
+  overflow: visible;
+  filter: drop-shadow(0 0 32px rgba(200,90,0,0.55));
+  animation: svgSigilAppear 0.7s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* Outer tick-mark ring — rotates clockwise */
+.svg-ring-outer {
+  transform-origin: 200px 200px;
+  animation: svgRotateCW 24s linear infinite;
+}
+
+/* Middle ring — counter-clockwise */
+.svg-ring-middle {
+  transform-origin: 200px 200px;
+  animation: svgRotateCCW 16s linear infinite;
+}
+
+/* Inner sigil — slow clockwise */
+.svg-ring-inner {
+  transform-origin: 200px 200px;
+  animation: svgRotateCW 30s linear infinite;
+}
+
+/* Moon disk breathing */
+.svg-moon-breathe {
+  animation: svgMoonBreathe 2.4s ease-in-out infinite;
+}
+
+/* Corona pulse */
+.svg-corona-pulse {
+  animation: svgCoronaPulse 2.2s ease-in-out infinite;
+}
+
+/* Progress arc — draws itself over 1.8 s */
+.svg-progress-arc {
+  animation: svgArcFill 1.8s cubic-bezier(0.4,0,0.2,1) 0.15s forwards;
+}
+
+/* Sparks that blink around the arc */
+.svg-spark {
+  animation: svgSparkBlink 0.9s ease-in-out infinite alternate;
+}
+
+/* Center flame */
+.svg-center-flame {
+  transform-origin: 200px 200px;
+  animation: svgFlameFlicker 0.45s ease-in-out infinite alternate;
+}
+
+/* Floating rune glyphs */
+.svg-rune-glyph {
+  animation: svgRuneFloat 2.4s ease-in-out infinite;
+}
+
+/* ── Loading text ── */
+.svg-loader-text {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.26em;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  color: #c87828;
+  text-transform: uppercase;
+  animation: svgTextAppear 0.8s ease-out 0.4s both;
+}
+
+.svg-loader-word {
+  color: #e8a040;
+}
+
+.svg-dot {
+  display: inline-block;
+  color: #f0a830;
+  animation: svgDotPop 0.9s ease-in-out infinite;
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+/* Fade overlay at the very end */
+.svg-loader-fadeout {
+  position: absolute;
+  inset: 0;
+  background: #02000a;
+  opacity: 0;
+  animation: svgFadeOutCover 0.35s ease-in 2.25s forwards;
+}
+
+/* ══════════════════════════════════
+   KEYFRAMES
+══════════════════════════════════ */
+
+@keyframes svgLoaderFadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes svgBgPulse {
+  0%, 100% { opacity: 0.85; }
+  50%       { opacity: 1;    }
+}
+
+@keyframes svgSigilAppear {
+  from { opacity: 0; transform: scale(0.72) rotate(-12deg); filter: blur(8px) drop-shadow(0 0 32px rgba(200,90,0,0.55)); }
+  to   { opacity: 1; transform: scale(1)    rotate(0deg);   filter: blur(0)   drop-shadow(0 0 32px rgba(200,90,0,0.55)); }
+}
+
+@keyframes svgRotateCW  { to { transform: rotate(360deg);  } }
+@keyframes svgRotateCCW { to { transform: rotate(-360deg); } }
+
+@keyframes svgMoonBreathe {
+  0%, 100% { opacity: 0.90; transform: scale(1);    }
+  50%       { opacity: 1.00; transform: scale(1.028); }
+}
+
+@keyframes svgCoronaPulse {
+  0%, 100% { opacity: 0.55; transform: scale(0.94); }
+  50%       { opacity: 0.90; transform: scale(1.06); }
+}
+
+/* Stroke-dashoffset from 502 → 0 fills the circle */
+@keyframes svgArcFill {
+  from { stroke-dashoffset: 502; }
+  to   { stroke-dashoffset: 0;   }
+}
+
+@keyframes svgSparkBlink {
+  0%   { opacity: 0.2; r: 1.2; }
+  100% { opacity: 1.0; r: 3.0; }
+}
+
+@keyframes svgFlameFlicker {
+  0%   { transform: scaleY(1)    scaleX(1)    rotate(-2deg); }
+  100% { transform: scaleY(1.07) scaleX(0.93) rotate(3deg);  }
+}
+
+@keyframes svgRuneFloat {
+  0%, 100% { opacity: 0.40; transform: translateY(0);    }
+  50%       { opacity: 0.85; transform: translateY(-4px); }
+}
+
+@keyframes svgTextAppear {
+  from { opacity: 0; letter-spacing: 0.45em; }
+  to   { opacity: 1; letter-spacing: 0.26em; }
+}
+
+@keyframes svgDotPop {
+  0%, 60%, 100% { opacity: 0.2; transform: translateY(0);    }
+  30%            { opacity: 1;   transform: translateY(-4px); }
+}
+
+@keyframes svgFadeOutCover {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Reduced-motion: skip all loader animations ── */
+@media (prefers-reduced-motion: reduce) {
+  .svg-loader-overlay,
+  .svg-loader-fadeout,
+  .svg-loader-sigil,
+  .svg-ring-outer,
+  .svg-ring-middle,
+  .svg-ring-inner,
+  .svg-moon-breathe,
+  .svg-corona-pulse,
+  .svg-progress-arc,
+  .svg-spark,
+  .svg-center-flame,
+  .svg-rune-glyph,
+  .svg-dot {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  .svg-progress-arc { stroke-dashoffset: 0; }
+  .svg-loader-overlay { animation: svgLoaderFadeOut 0.2s ease-in 0.5s forwards; }
+}

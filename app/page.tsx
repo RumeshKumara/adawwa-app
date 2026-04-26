@@ -5,6 +5,7 @@ import {
   buildTree, genStars, genBats, spawnParticles, drawFrame,
   type Star, type BatState, type Particle,
 } from '@/app/lib/cinema';
+import LoadingOverlay from '@/app/components/LoadingOverlay';
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -55,7 +56,7 @@ export default function Home() {
         drawFrame(ctx, canvas.width, canvas.height, t, treeL, treeR, stars, bats, particles, dt);
       }
 
-      if (t < 11.8) {
+      if (t < 10.2) {
         raf = requestAnimationFrame(loop);
       } else {
         setShowIntro(false);
@@ -73,6 +74,9 @@ export default function Home() {
 
   return (
     <>
+      {/* ── SVG Splash / Loading Sigil ── */}
+      <LoadingOverlay />
+
       {/* ── Cinematic Canvas Loader ── */}
       <div
         className={`fixed inset-0 z-50 overflow-hidden transition-opacity duration-700 ${loaderCls}`}
