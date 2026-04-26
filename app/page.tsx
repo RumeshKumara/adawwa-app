@@ -101,15 +101,15 @@ export default function Home() {
             <span className="fire">w</span><span className="fire">v</span><span className="fire">js</span><span className="fire">j</span>
           </h1>
 
-          <p className='-mt-6 text-sm tracking-[1.3em] text-[#f5e6b4] sm:text-base'>ADAWWA</p>
+          <p className='-mt-4 text-sm tracking-[1.3em] text-[#f5e6b4] sm:text-base'>ADAWWA</p>
 
           <p className='mt-2 max-w-2xl text-xs leading-relaxed tracking-[0.06em] text-white sm:text-[1.6rem]'>
             AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF<br />SRI LANKAN TROPICAL MUSIC
           </p>
 
           <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
-            <p className="text-4xl tracking-[0.04em] sm:text-6xl">ON</p>
-            <p className="mt-2 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-2xl text-yellow-400 mx-3 tracking-tighter -tracking-wider absolute  top-8 transform -translate-x-1/2 ">th</span> <span className='ml-4'>OF APRIL</span></p>
+            <p className="text-4xl  tracking-[0.04em] sm:text-6xl">ON</p>
+            <p className="mt-4 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-2xl text-yellow-400 mx-3 tracking-tighter -tracking-wider absolute  top-10 transform -translate-x-1/2 ">th</span> <span className='ml-4'>OF APRIL</span></p>
           </div>
 
           <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
