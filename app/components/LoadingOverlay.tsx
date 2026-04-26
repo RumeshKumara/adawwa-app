@@ -139,7 +139,7 @@ export default function LoadingOverlay() {
             return (
               <polygon
                 key={i}
-                points={`${x},${y-6} ${x+6},${y} ${x},${y+6} ${x-6},${y}`}
+                points={`${x},${y - 6} ${x + 6},${y} ${x},${y + 6} ${x - 6},${y}`}
                 fill="url(#gold-metal)"
                 filter="url(#intense-glow)"
                 transform={`rotate(${(i / 8) * 360}, ${x}, ${y})`}

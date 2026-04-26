@@ -845,4 +845,16 @@ body {
   }
 }
 
+@keyframes smoothFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-smooth-float {
+  animation: smoothFloat 4s ease-in-out infinite;
+}
 

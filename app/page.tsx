@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import LoadingOverlay from '@/app/components/LoadingOverlay';
 
 export default function Home() {
@@ -39,12 +40,22 @@ export default function Home() {
           <p className='font-["Grained","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>WE CORDIALLY</p>
           <p className='font-["Grained","Apex",serif] text-3xl font-semibold tracking-[0.10em] text-white sm:text-6xl'>INVITE YOU TO</p>
 
-          <h1 className='relative isolate font-["Apex"] px-3 text-[clamp(6rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] sm:text-[clamp(5rem,12vw,10rem)]' >
+          {/* <h1 className='relative isolate font-["Apex"] px-3 text-[clamp(6rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] sm:text-[clamp(5rem,12vw,10rem)]' >
             <div className="fade-lines-bg" aria-hidden="true" />
             <span className="fire">w</span><span className="fire">v</span><span className="fire">js</span><span className="fire">j</span>
-          </h1>
+          </h1> */}
+          <div className="relative w-[clamp(18rem,65vw,42rem)] h-[clamp(8rem,22vw,16rem)] my-2">
+            <Image
+              src="/assets/Adawwa-logo.png"
+              alt="Adawwa Logo"
+              width={1200}
+              height={1200}
+              className="object-contain animate-smooth-float"
+              style={{ filter: 'brightness(0) saturate(100%) invert(82%) sepia(61%) saturate(836%) hue-rotate(345deg) brightness(102%) contrast(103%) drop-shadow(0 0 25px rgba(255,187,0,0.8))' }}
+            />
+          </div>
 
-          <p className='-mt-4 text-sm tracking-[1.3em] text-[#f5e6b4] sm:text-base'>ADAWWA</p>
+          <p className='-mt-8 -mr-4 text-sm tracking-[1.3em] text-[#f5e6b4] sm:text-base'>ADAWWA</p>
 
           <p className='mt-2 max-w-2xl text-xs leading-relaxed tracking-[0.06em] text-white sm:text-[1.6rem]'>
             AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF<br />SRI LANKAN TROPICAL MUSIC
