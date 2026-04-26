@@ -97,7 +97,7 @@ export default function Home() {
           <p className='font-["Firlest","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>WE CORDIALLY</p>
           <p className='font-["Firlest","Apex",serif] text-4xl font-semibold tracking-[0.10em] text-white sm:text-7xl'>INVITE YOU TO</p>
 
-          <h1 className="font-firlest px-3 text-[clamp(8rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158,108,16,1)] sm:text-[clamp(5rem,12vw,10rem)]" lang="si">
+          <h1 className="font-apex px-3 text-[clamp(8rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158,108,16,1)] sm:text-[clamp(5rem,12vw,10rem)]" lang="si">
             <span className="fire">w</span><span className="fire">v</span><span className="fire">js</span><span className="fire">j</span>
           </h1>
 
