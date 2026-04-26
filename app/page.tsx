@@ -73,9 +73,8 @@ export default function Home() {
 
           <div className="mt-3 h-0.5 w-24 bg-gradient-to-r from-transparent via-[#f0ae2f] to-transparent sm:mt-4 sm:w-44" />
 
-          <div className='mt-4 rounded-full border border-[#f3cb77]/35 bg-[#54000f]/60 px-4 py-3 font-["Cinzel","Times_New_Roman",serif] text-[#fcebc2] shadow-[0_14px_30px_rgba(0,0,0,0.34)] sm:px-8'>
-            <p className="text-base font-semibold tracking-[0.07em] sm:text-2xl">STUDENTS&apos; UNION FACULTY OF COMPUTING</p>
-            <p className="mt-1 text-sm tracking-[0.09em] sm:text-lg">SABARAGAMUWA UNIVERSITY OF SRI LANKA</p>
+          <div className='mt-4 sm:mt-6 w-full px-4'>
+            <img src="/assets/foc.jpeg" alt="FOC Logo" className="mx-auto w-auto h-auto max-h-[120px] sm:max-h-[160px] max-w-full rounded-full object-contain shadow-[0_0_20px_rgba(243,203,119,0.4)] border border-[#f3cb77]/60" />
           </div>
         </section>
       </main>
