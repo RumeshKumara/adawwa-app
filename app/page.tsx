@@ -81,8 +81,8 @@ export default function Home() {
 
           <div className='mt-2 font-["Casta","Apex",serif] text-white'>
             <p className="text-2xl tracking-[0.04em] sm:text-6xl font-[grained]">AT</p>
-            <p className="mt-1 text-5xl font-extrabold tracking-[0.07em] sm:text-8xl">THE MAIN</p>
-            <p className="mt-2 text-5xl font-extrabold tracking-[0.07em] sm:text-8xl">CANTEEN</p>
+            <p className="mt-1 text-5xl font-extrabold sm:text-8xl">THE MAIN</p>
+            <p className="mt-2 text-5xl font-extrabold sm:text-8xl">CANTEEN</p>
           </div>
 
           <p className='mt-3 max-w-2xl font-["Cinzel Decorative","Apex",serif] text-[0.86rem] uppercase leading-tight tracking-[0.04em] text-[#f7e4bf] sm:text-2xl'>
