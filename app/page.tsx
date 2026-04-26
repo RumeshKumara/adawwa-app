@@ -95,7 +95,7 @@ export default function Home() {
 
         <section className={`invitation-content relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-3xl flex-col items-center justify-center gap-3 pt-14 sm:gap-4 sm:pt-20 ${revealCls}`}>
           <p className='font-["Firlest","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>WE CORDIALLY</p>
-          <p className='font-["Firlest","Apex",serif] text-5xl font-semibold tracking-[0.12em] text-white sm:text-7xl'>INVITE YOU TO</p>
+          <p className='font-["Firlest","Apex",serif] text-4xl font-semibold tracking-[0.10em] text-white sm:text-7xl'>INVITE YOU TO</p>
 
           <h1 className="font-firlest px-3 text-[clamp(8rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158,108,16,1)] sm:text-[clamp(5rem,12vw,10rem)]" lang="si">
             <span className="fire">w</span><span className="fire">v</span><span className="fire">js</span><span className="fire">j</span>
@@ -109,7 +109,7 @@ export default function Home() {
 
           <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
             <p className="text-4xl tracking-[0.04em] sm:text-6xl">ON</p>
-            <p className="mt-2 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-2xl text-yellow-400 mx-3 tracking-tighter -tracking-wider absolute  top-8 transform -translate-x-1/2 ">th</span> <span className='ml-8'>OF APRIL</span></p>
+            <p className="mt-2 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-2xl text-yellow-400 mx-3 tracking-tighter -tracking-wider absolute  top-8 transform -translate-x-1/2 ">th</span> <span className='ml-4'>OF APRIL</span></p>
           </div>
 
           <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
