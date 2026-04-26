@@ -130,7 +130,7 @@ export default function Home() {
           <div className="mt-3 h-0.5 w-24 bg-gradient-to-r from-transparent via-[#f0ae2f] to-transparent sm:mt-4 sm:w-44" />
 
           <div className='mt-4 sm:mt-6 w-full px-4'>
-            <img src="/assets/foc.jpeg" alt="FOC Logo" className="mx-auto w-auto h-auto max-h-[120px] sm:max-h-[160px] max-w-full rounded-full object-contain shadow-[0_0_20px_rgba(243,203,119,0.4)] border border-[#f3cb77]/60" />
+            <img src="/assets/foc.jpeg" alt="FOC Logo" className="mx-auto w-auto h-auto max-h-[120px] sm:max-h-[160px] max-w-full rounded-full object-contain shadow-[0_0_20px_rgba(243,203,119,0.4)] border-2 border-[#f3cb77]/60" />
           </div>
         </section>
       </main>
