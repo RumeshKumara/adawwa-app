@@ -170,7 +170,7 @@ export default function LoadingOverlay() {
           style={{ filter: 'brightness(0) saturate(100%) invert(85%) sepia(45%) saturate(1000%) hue-rotate(350deg) brightness(105%) contrast(105%) drop-shadow(0 0 15px rgba(255,187,0,0.6))' }}
         />
         <h3 className='font-["Apex"] px-3 text-[clamp(6rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158,108,16,1)] sm:text-[clamp(5rem,12vw,10rem)]'>2026</h3>
-        <p className="mt-2 font-[serif] text-sm text-[#ffeb99] drop-shadow-[0_2px_8px_rgba(255,150,0,0.6)] font-semibold sm:text-lg">
+        <p className="mt-2 font-[serif] text-2xl text-[#ffeb99] drop-shadow-[0_2px_8px_rgba(255,150,0,0.6)] font-semibold sm:text-lg">
           FOC
         </p>
       </div>
