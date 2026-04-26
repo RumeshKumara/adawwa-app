@@ -25,8 +25,8 @@ const caesarDressing = Caesar_Dressing({
 });
 
 export const metadata: Metadata = {
-  title: "Adawwa App",
-  description: "Fresh Next.js app starter",
+  title: "Adawwa",
+  description: "Adawwa - An enchanting evening celebrating the rich heritage of Sri Lankan Tropical Music",
 };
 
 export default function RootLayout({
