@@ -8,8 +8,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Firlest';
+  src: url('/fonts/Firlest-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
-  font-family: 'Apex', sans-serif;
+  font-family: 'Firlest', 'Apex', sans-serif;
 }
 
 :root {
@@ -20,11 +27,250 @@ body {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: 'Firlest', 'Apex', var(--font-geist-sans), system-ui, sans-serif;
   background-color: #320009;
   color: #fff3da;
 }
 
 :lang(si) {
   font-family: "Apex-A.Pura-036", "Noto Sans Sinhala", serif;
+}
+
+@keyframes torch-flame-flicker {
+  0% {
+    transform: translateY(0) scale(0.96);
+    opacity: 0.9;
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) scale(1.04);
+    opacity: 1;
+    filter: hue-rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-4px) scale(0.98);
+    opacity: 0.92;
+    filter: hue-rotate(6deg);
+  }
+  75% {
+    transform: translateY(-1px) scale(1.06);
+    opacity: 1;
+    filter: hue-rotate(-5deg);
+  }
+  100% {
+    transform: translateY(0) scale(0.96);
+    opacity: 0.9;
+    filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes torch-sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes torch-glow-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.86);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.86);
+  }
+}
+
+@keyframes torch-ember-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  18% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-44px) translateX(6px) scale(1);
+  }
+}
+
+.invitation-torch {
+  width: 64px;
+  height: 146px;
+  position: relative;
+  transform-origin: 50% 75%;
+  animation: torch-sway 2.2s ease-in-out infinite;
+}
+
+.invitation-torch-right {
+  animation-duration: 2.4s;
+}
+
+.invitation-torch-flame {
+  position: absolute;
+  z-index: 4;
+  top: 8px;
+  left: 17px;
+  width: 30px;
+  height: 52px;
+  border-radius: 55% 45% 60% 60%;
+  background:
+    radial-gradient(circle at 50% 72%, #fff0bb 0 24%, #ffc12f 30%, transparent 65%),
+    radial-gradient(circle at 50% 36%, #ff9823 8%, #ff5a18 58%, #9f2307 100%);
+  box-shadow: 0 0 20px rgba(255, 118, 25, 0.85), 0 0 54px rgba(255, 162, 53, 0.55);
+  animation: torch-flame-flicker 0.92s ease-in-out infinite;
+}
+
+.invitation-torch-inner {
+  position: absolute;
+  z-index: 5;
+  top: 21px;
+  left: 25px;
+  width: 13px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 65%, #fffad8 0, #ffde6c 45%, transparent 85%);
+  animation: torch-flame-flicker 0.78s ease-in-out infinite;
+}
+
+.invitation-torch-glow {
+  position: absolute;
+  z-index: 2;
+  top: -4px;
+  left: 4px;
+  width: 56px;
+  height: 70px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 183, 60, 0.55) 0%, rgba(255, 128, 22, 0.28) 38%, transparent 70%);
+  filter: blur(3px);
+  animation: torch-glow-pulse 1.12s ease-in-out infinite;
+}
+
+.invitation-torch-head {
+  position: absolute;
+  z-index: 3;
+  top: 50px;
+  left: 18px;
+  width: 29px;
+  height: 18px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #7f511c 0%, #4d2b10 55%, #2a1408 100%);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.45), 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.invitation-torch-stick {
+  position: absolute;
+  z-index: 1;
+  top: 58px;
+  left: 22px;
+  width: 22px;
+  height: 86px;
+  border-radius: 9999px 9999px 14px 14px;
+  background: linear-gradient(180deg, #7a4a1d 0%, #4a2a11 45%, #2f190c 100%);
+  box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.25), inset 2px 0 4px rgba(255, 179, 111, 0.08);
+  transform: rotate(14deg);
+}
+
+.invitation-torch-right .invitation-torch-stick {
+  transform: rotate(-14deg);
+}
+
+.invitation-torch-right .invitation-torch-head {
+  left: 17px;
+}
+
+.invitation-torch-ember {
+  position: absolute;
+  z-index: 6;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: #ffce63;
+  box-shadow: 0 0 8px rgba(255, 196, 74, 0.7);
+  animation: torch-ember-rise 1.6s linear infinite;
+}
+
+.invitation-torch-ember-1 {
+  top: 15px;
+  left: 30px;
+  animation-delay: 0.1s;
+}
+
+.invitation-torch-ember-2 {
+  top: 22px;
+  left: 24px;
+  animation-delay: 0.55s;
+}
+
+.invitation-torch-ember-3 {
+  top: 18px;
+  left: 37px;
+  animation-delay: 0.95s;
+}
+
+@media (min-width: 640px) {
+  .invitation-torch {
+    width: 74px;
+    height: 164px;
+  }
+
+  .invitation-torch-flame {
+    left: 20px;
+    width: 34px;
+    height: 58px;
+  }
+
+  .invitation-torch-inner {
+    top: 24px;
+    left: 29px;
+    width: 14px;
+    height: 26px;
+  }
+
+  .invitation-torch-glow {
+    top: -5px;
+    left: 8px;
+    width: 62px;
+    height: 78px;
+  }
+
+  .invitation-torch-head {
+    top: 56px;
+    left: 22px;
+    width: 31px;
+    height: 19px;
+  }
+
+  .invitation-torch-stick {
+    top: 65px;
+    left: 25px;
+    width: 24px;
+    height: 96px;
+  }
+
+  .invitation-torch-ember-1 {
+    top: 16px;
+    left: 35px;
+  }
+
+  .invitation-torch-ember-2 {
+    top: 23px;
+    left: 27px;
+  }
+
+  .invitation-torch-ember-3 {
+    top: 19px;
+    left: 42px;
+  }
 }
