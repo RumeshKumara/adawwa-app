@@ -160,81 +160,16 @@ export default function LoadingOverlay() {
           <circle cx="200" cy="200" r="105" fill="none" stroke="#ffeb99" strokeWidth="0.8" strokeOpacity="0.6" strokeDasharray="2 6" />
         </g>
 
-        {/* ── Realistic Animated Fire Flames ── */}
-        <g className="svg-center-flame" filter="url(#realistic-fire)">
-          {/* Outer diffuse flame */}
-          <path
-            d="M200,140 C185,160 170,180 175,200 C180,220 190,225 200,225 C210,225 220,220 225,200 C230,180 215,160 200,140 Z"
-            fill="#d42800"
-            opacity="0.8"
-            filter="blur(4px)"
-          />
-          {/* Mid intense flame */}
-          <path
-            d="M200,155 C190,170 182,185 186,200 C190,215 195,220 200,220 C205,220 210,215 214,200 C218,185 210,170 200,155 Z"
-            fill="#ff9a28"
-            opacity="0.9"
-            filter="blur(2px)"
-          />
-          {/* Core white-hot flame */}
-          <path
-            d="M200,175 C195,185 192,195 195,205 C197,212 198,214 200,214 C202,214 203,212 205,205 C208,195 205,185 200,175 Z"
-            fill="#ffffff"
-          />
-        </g>
-
-        {/* ── Real Dynamic Sparks ── */}
-        {[...Array(12)].map((_, i) => {
-          const angle = (i / 12) * Math.PI * 2;
-          const delay = i * 0.15;
-          return (
-            <circle
-              key={i}
-              cx={200 + Math.cos(angle) * 110}
-              cy={200 + Math.sin(angle) * 110}
-              r={1.5 + (i % 3)}
-              fill={i % 2 === 0 ? "#ffeb99" : "#ff7a00"}
-              className="svg-spark"
-              style={{ animationDelay: `${delay}s`, transformOrigin: '200px 200px' }}
-              filter="url(#intense-glow)"
-            />
-          );
-        })}
-
-        {/* ── Floating Rune Glyphs ── */}
-        {[
-          { x: 200, y: 30,  char: '❖', delay: '0s' },
-          { x: 340, y: 120, char: '✦', delay: '0.4s' },
-          { x: 340, y: 280, char: '✧', delay: '0.8s' },
-          { x: 200, y: 370, char: '⟡', delay: '1.2s' },
-          { x: 60,  y: 280, char: '✦', delay: '1.6s' },
-          { x: 60,  y: 120, char: '✧', delay: '2.0s' },
-        ].map((g, i) => (
-          <text
-            key={i}
-            x={g.x}
-            y={g.y}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fontSize="24"
-            fill="url(#gold-metal)"
-            className="svg-rune-glyph"
-            style={{ animationDelay: g.delay }}
-            filter="url(#intense-glow)"
-          >
-            {g.char}
-          </text>
-        ))}
       </svg>
 
-      {/* ── High-Fidelity Loading Text ── */}
-      <div className="svg-loader-text">
-        <span className="svg-loader-word" style={{ background: 'linear-gradient(to right, #ffeb99, #d4820a)', WebkitBackgroundClip: 'text', color: 'transparent', textShadow: '0 0 20px rgba(255,150,0,0.5)' }}>ADAWWA</span>
-        <span className="svg-loader-dots">
-          <span className="svg-dot" style={{ animationDelay: '0s' }}>·</span>
-          <span className="svg-dot" style={{ animationDelay: '0.2s' }}>·</span>
-          <span className="svg-dot" style={{ animationDelay: '0.4s' }}>·</span>
-        </span>
+      <div className="mt-8 z-10 flex flex-col items-center text-center pointer-events-none">
+        <h1 className='font-["Apex"] px-3 text-[clamp(6rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158,108,16,1)] sm:text-[clamp(5rem,12vw,10rem)]' >
+          <span className="fire">w</span><span className="fire">v</span><span className="fire">js</span><span className="fire">j</span>
+        </h1>
+        <h3 className='font-["Apex"] px-3 text-[clamp(6rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158,108,16,1)] sm:text-[clamp(5rem,12vw,10rem)]'>2026</h3>
+        <p className="mt-2 font-[serif] text-sm text-[#ffeb99] drop-shadow-[0_2px_8px_rgba(255,150,0,0.6)] font-semibold sm:text-lg">
+          FOC
+        </p>
       </div>
 
       {/* Fade-out overly */}

@@ -1,70 +1,16 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import {
-  buildTree, genStars, genBats, spawnParticles, drawFrame,
-  type Star, type BatState, type Particle,
-} from '@/app/lib/cinema';
+import { useEffect, useState } from 'react';
 import LoadingOverlay from '@/app/components/LoadingOverlay';
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const stars: Star[] = genStars(300);
-    const bats: BatState[] = genBats(9);
-    const particles: Particle[] = [];
-    let treeL: HTMLCanvasElement | null = null;
-    let treeR: HTMLCanvasElement | null = null;
-    let particlesSpawned = false;
-    let raf = 0;
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      treeL = buildTree('left', canvas.width, canvas.height);
-      treeR = buildTree('right', canvas.width, canvas.height);
-    };
-    resize();
-    window.addEventListener('resize', resize);
-
-    const start = performance.now();
-    let prevNow = start;
-
-    const loop = () => {
-      const now = performance.now();
-      const t = (now - start) / 1000;
-      const dt = Math.min(0.05, (now - prevNow) / 1000);
-      prevNow = now;
-
-      if (treeL && treeR) {
-        /* Spawn golden particles when chest opens */
-        if (t > 6.9 && !particlesSpawned) {
-          particles.push(...spawnParticles(canvas.width * 0.50, canvas.height * 0.62, 70));
-          particlesSpawned = true;
-        }
-        /* Cull dead particles */
-        for (let i = particles.length - 1; i >= 0; i--)
-          if (particles[i].life >= particles[i].ml) particles.splice(i, 1);
-
-        drawFrame(ctx, canvas.width, canvas.height, t, treeL, treeR, stars, bats, particles, dt);
-      }
-
-      if (t < 10.2) {
-        raf = requestAnimationFrame(loop);
-      } else {
-        setShowIntro(false);
-      }
-    };
-
-    raf = requestAnimationFrame(loop);
-    return () => { window.removeEventListener('resize', resize); cancelAnimationFrame(raf); };
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+    }, 2800); // Wait for the 2.8s sigil loading to finish
+    return () => clearTimeout(timer);
   }, []);
 
   const mainCls = showIntro ? 'opacity-0 translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0 pointer-events-auto';
@@ -76,14 +22,6 @@ export default function Home() {
     <>
       {/* ── SVG Splash / Loading Sigil ── */}
       <LoadingOverlay />
-
-      {/* ── Cinematic Canvas Loader ── */}
-      <div
-        className={`fixed inset-0 z-50 overflow-hidden transition-opacity duration-700 ${loaderCls}`}
-        aria-hidden={!showIntro}
-      >
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-      </div>
 
       {/* ── Main content ── */}
       <main className={`relative isolate min-h-dvh overflow-hidden bg-[#02070d] px-6 py-8 text-center text-[#fdf2d0] transition-all duration-700 sm:px-10 sm:py-10 ${mainCls}`}>
