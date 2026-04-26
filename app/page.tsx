@@ -30,10 +30,48 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,22,36,0.14)_0%,rgba(8,18,30,0.38)_32%,rgba(4,11,19,0.76)_67%,rgba(1,5,10,0.98)_100%)]" />
 
         <div className={`invitation-torch invitation-torch-left pointer-events-none fixed z-20 ${torchCls}`} aria-hidden="true">
-          <span className="invitation-torch-flame" /><span className="invitation-torch-stick" />
+          {/* Ambient light cast on wall */}
+          <div className="torch-ambient-light" />
+          {/* Flame layers */}
+          <div className="torch-flame-wrap">
+            <div className="torch-flame-outer" />
+            <div className="torch-flame-mid" />
+            <div className="torch-flame-inner" />
+            <div className="torch-flame-tip" />
+            {/* Embers */}
+            <div className="torch-ember torch-ember-1" />
+            <div className="torch-ember torch-ember-2" />
+            <div className="torch-ember torch-ember-3" />
+            <div className="torch-ember torch-ember-4" />
+            <div className="torch-ember torch-ember-5" />
+          </div>
+          {/* Torch bowl (metal cup) */}
+          <div className="torch-bowl" />
+          <div className="torch-bowl-rim" />
+          {/* Torch stick */}
+          <div className="torch-stick" />
         </div>
         <div className={`invitation-torch invitation-torch-right pointer-events-none fixed z-20 ${torchCls}`} aria-hidden="true">
-          <span className="invitation-torch-flame" /><span className="invitation-torch-stick" />
+          {/* Ambient light cast on wall */}
+          <div className="torch-ambient-light" />
+          {/* Flame layers */}
+          <div className="torch-flame-wrap">
+            <div className="torch-flame-outer" />
+            <div className="torch-flame-mid" />
+            <div className="torch-flame-inner" />
+            <div className="torch-flame-tip" />
+            {/* Embers */}
+            <div className="torch-ember torch-ember-1" />
+            <div className="torch-ember torch-ember-2" />
+            <div className="torch-ember torch-ember-3" />
+            <div className="torch-ember torch-ember-4" />
+            <div className="torch-ember torch-ember-5" />
+          </div>
+          {/* Torch bowl (metal cup) */}
+          <div className="torch-bowl" />
+          <div className="torch-bowl-rim" />
+          {/* Torch stick */}
+          <div className="torch-stick" />
         </div>
 
         <section className={`invitation-content relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-3xl flex-col items-center justify-center gap-3 pt-14 sm:gap-4 sm:pt-20 ${revealCls}`}>
