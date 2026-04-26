@@ -858,3 +858,17 @@ body {
   animation: smoothFloat 4s ease-in-out infinite;
 }
 
+.logo-gradient-fill {
+  background: linear-gradient(180deg, #fff7d1 0%, #ffca43 35%, #ff8c00 70%, #e65100 100%);
+  -webkit-mask-image: url('/assets/Adawwa-logo.png');
+  mask-image: url('/assets/Adawwa-logo.png');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px rgba(255, 187, 0, 0.7));
+}
+
