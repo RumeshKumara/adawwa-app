@@ -37,8 +37,8 @@ export default function Home() {
         </div>
 
         <section className={`invitation-content relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-3xl flex-col items-center justify-center gap-3 pt-14 sm:gap-4 sm:pt-20 ${revealCls}`}>
-          <p className='font-["Grained","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>WE CORDIALLY</p>
-          <p className='font-["Grained","Apex",serif] text-3xl font-semibold tracking-[0.10em] text-white sm:text-6xl'>INVITE YOU TO</p>
+          <p className='font-["Casta","Apex",serif] font-semibold text-white sm:text-3xl text-3xl uppercase'>WE CORDIALLY</p>
+          <p className='font-["Casta","Apex",serif] text-5xl font-semibold  text-white sm:text-7xl uppercase'>INVITE YOU TO</p>
 
           {/* <h1 className='relative isolate font-["Apex"] px-3 text-[clamp(6rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] sm:text-[clamp(5rem,12vw,10rem)]' >
             <div className="fade-lines-bg" aria-hidden="true" />
@@ -54,7 +54,7 @@ export default function Home() {
 
           <p className='-mt-10 -mr-4 text-sm tracking-[1.3em] text-[#f5e6b4] sm:text-base'>ADAWWA</p>
 
-          <p className='mt-2 max-w-2xl text-xs leading-relaxed tracking-[0.06em] text-white sm:text-[1.6rem]'>
+          <p className='mt-2 max-w-2xl text-xs leading-relaxed tracking-[0.06em] text-white sm:text-[1.6rem] font-["Cinzel Decorative","Apex",serif]'>
             AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF<br />SRI LANKAN TROPICAL MUSIC
           </p>
 
