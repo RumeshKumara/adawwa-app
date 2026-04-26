@@ -45,38 +45,92 @@ body {
   font-family: "Apex";
 }
 
-/* Fiery title letters with a visible fallback color */
+/* 3D Fiery title letters with old video (VHS) chromatic aberration */
 .fire {
-  color: #ffcc63;
+  color: #ffda8b;
   display: inline-block;
-  text-shadow:
-    0 0 8px rgba(255, 187, 55, 0.45),
-    0 0 20px rgba(255, 102, 24, 0.28),
-    0 0 36px rgba(212, 44, 12, 0.18);
-  animation: fireGlow 1.5s ease-in-out infinite;
+  text-shadow: 
+    0px 1px 0px #d4820a,
+    0px 2px 0px #b56b00,
+    0px 3px 0px #915100,
+    0px 4px 0px #703c00,
+    0px 5px 0px #542c00,
+    0px 6px 0px #381b00,
+    -4px 2px 3px rgba(255, 166, 0, 0.8),
+    4px -2px 3px rgba(39, 39, 39, 0.8),
+    0 0 20px rgba(255, 187, 55, 0.5);
+  animation: fireGlow 2.5s infinite alternate ease-in-out;
+  transform-style: preserve-3d;
 }
 
 @keyframes fireGlow {
   0% {
-    color: #ffd57c;
-    text-shadow:
-      0 0 8px rgba(255, 187, 55, 0.42),
-      0 0 18px rgba(255, 102, 24, 0.24),
-      0 0 30px rgba(212, 44, 12, 0.14);
+    color: #ffda8b;
+    text-shadow: 
+      0px 1px 0px #d4820a,
+      0px 2px 0px #b56b00,
+      0px 3px 0px #915100,
+      0px 4px 0px #703c00,
+      0px 5px 0px #542c00,
+      0px 6px 0px #381b00,
+      -3px 2px 2px rgba(255, 166, 0, 0.9),
+      3px -2px 2px rgba(17, 17, 17, 0.9),
+      0 0 25px rgba(255, 187, 55, 0.8);
+    transform: translateY(0px) skewX(0deg);
+  }
+  48% {
+    color: #ffda8b;
+    text-shadow: 
+      0px 1px 0px #d4820a,
+      0px 2px 0px #b56b00,
+      0px 3px 0px #915100,
+      0px 4px 0px #703c00,
+      0px 5px 0px #542c00,
+      0px 6px 0px #381b00,
+      -3px 2px 2px rgba(255, 187, 0, 0.9),
+      3px -2px 2px rgba(32, 32, 32, 0.9),
+      0 0 25px rgba(255, 187, 55, 0.8);
+    transform: translateY(0px) skewX(0deg);
   }
   50% {
-    color: #ffbf48;
-    text-shadow:
-      0 0 10px rgba(255, 201, 109, 0.54),
-      0 0 24px rgba(255, 122, 20, 0.34),
-      0 0 42px rgba(194, 42, 10, 0.24);
+    /* Old Video Glitch */
+    color: #ffffff;
+    text-shadow: 
+      0px 1px 0px #ffb347,
+      0px 2px 0px #ff9a00,
+      0px 3px 0px #e68a00,
+      -12px 0px 0px rgb(255, 187, 0),
+      12px 0px 0px rgb(29, 29, 29),
+      0 0 40px rgba(255, 255, 255, 1);
+    transform: translateY(-2px) skewX(-6deg);
+  }
+  52% {
+    color: #ffda8b;
+    text-shadow: 
+      0px 1px 0px #d4820a,
+      0px 2px 0px #b56b00,
+      0px 3px 0px #915100,
+      0px 4px 0px #703c00,
+      0px 5px 0px #542c00,
+      0px 6px 0px #381b00,
+      -2px 1px 2px rgba(255, 196, 0, 0.7),
+      2px -1px 2px rgba(31, 31, 31, 0.7),
+      0 0 20px rgba(255, 187, 55, 0.5);
+    transform: translateY(0px) skewX(0deg);
   }
   100% {
-    color: #ffd57c;
-    text-shadow:
-      0 0 8px rgba(255, 187, 55, 0.42),
-      0 0 18px rgba(255, 102, 24, 0.24),
-      0 0 30px rgba(212, 44, 12, 0.14);
+    color: #ffe8b5;
+    text-shadow: 
+      0px 1px 0px #b86e00,
+      0px 2px 0px #945500,
+      0px 3px 0px #734000,
+      0px 4px 0px #572e00,
+      0px 5px 0px #3d1e00,
+      0px 6px 0px #240f00,
+      -6px 3px 4px rgba(241, 197, 0, 0.8),
+      6px -3px 4px rgba(29, 29, 29, 0.8),
+      0 0 35px rgba(255, 200, 100, 0.9);
+    transform: translateY(-3px) skewX(0deg);
   }
 }
 
@@ -710,6 +764,41 @@ body {
   }
   .svg-progress-arc { stroke-dashoffset: 0; }
   .svg-loader-overlay { animation: svgLoaderFadeOut 0.2s ease-in 0.5s forwards; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   FADE LINES ANIMATION FOR TITLE BACKGROUND
+══════════════════════════════════════════════════════════ */
+
+.fade-lines-bg {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -10%;
+  right: -10%;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 4px,
+    rgba(255, 215, 130, 0.35) 5px,
+    rgba(255, 215, 130, 0.35) 6px
+  );
+  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  animation: fadeLinesAnim 2.5s infinite ease-in-out alternate;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes fadeLinesAnim {
+  0% {
+    opacity: 0.2;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
 }
 
 
