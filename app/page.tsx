@@ -58,7 +58,17 @@ export default function Home() {
             AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF<br />SRI LANKAN TROPICAL MUSIC
           </p>
 
-          <div className='mt-2 font-["Grained","Apex",serif] text-white'>
+          <div className="mt-2">
+            <Image
+              src="/assets/date-time.png"
+              alt="Date and Time"
+              width={600}
+              height={200}
+              className="mx-auto w-[clamp(16rem,60vw,38rem)] h-auto object-contain"
+            />
+          </div>
+
+          {/* <div className='mt-2 font-["Grained","Apex",serif] text-white'>
             <p className="text-2xl  tracking-[0.04em] sm:text-6xl">ON</p>
             <p className="mt-4 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-xl text-yellow-300 mx-3 tracking-tighter -tracking-wider absolute  top-10 transform -translate-x-1/2 ">TH</span> <span className='ml-4 text-4xl'>OF APRIL</span></p>
           </div>
@@ -67,12 +77,12 @@ export default function Home() {
             <p className="text-2xl tracking-[0.04em] sm:text-6xl">FROM</p>
             <p className="mt-1 text-6xl font-semibold tracking-[0.08em] sm:text-8xl">06.30 <span className='text-2xl -ml-4 text-yellow-300'>P.M.</span></p>
             <p className="text-lg tracking-[0.18em] text-yellow-300 sm:text-3xl">- ONWARDS -</p>
-          </div>
+          </div> */}
 
           <div className='mt-2 font-["Casta","Apex",serif] text-white'>
             <p className="text-2xl tracking-[0.04em] sm:text-6xl font-[grained]">AT</p>
-            <p className="mt-1 text-4xl font-extrabold tracking-[0.10em] sm:text-8xl">THE MAIN</p>
-            <p className="mt-2 text-4xl font-extrabold tracking-[0.10em] sm:text-8xl">CANTEEN</p>
+            <p className="mt-1 text-5xl font-extrabold tracking-[0.07em] sm:text-8xl">THE MAIN</p>
+            <p className="mt-2 text-5xl font-extrabold tracking-[0.07em] sm:text-8xl">CANTEEN</p>
           </div>
 
           <p className='mt-3 max-w-2xl font-["Cinzel Decorative","Apex",serif] text-[0.86rem] uppercase leading-tight tracking-[0.04em] text-[#f7e4bf] sm:text-2xl'>
