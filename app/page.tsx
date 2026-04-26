@@ -90,36 +90,38 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[url('/assets/back-stage.jpeg')] bg-cover bg-center" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,22,36,0.14)_0%,rgba(8,18,30,0.38)_32%,rgba(4,11,19,0.76)_67%,rgba(1,5,10,0.98)_100%)]" />
 
-        <div className="invitation-torch invitation-torch-left pointer-events-none absolute left-4 top-8 z-10 sm:left-10 sm:top-12">
+        <div className="invitation-torch invitation-torch-left pointer-events-none fixed z-20" aria-hidden="true">
           <span className="invitation-torch-flame" />
           <span className="invitation-torch-stick" />
         </div>
-        <div className="invitation-torch invitation-torch-right pointer-events-none absolute right-4 top-8 z-10 sm:right-10 sm:top-12">
+        <div className="invitation-torch invitation-torch-right pointer-events-none fixed z-20" aria-hidden="true">
           <span className="invitation-torch-flame" />
           <span className="invitation-torch-stick" />
         </div>
 
         <section className="relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-3xl flex-col items-center justify-center gap-3 pt-14 sm:gap-4 sm:pt-20">
-          <p className='font-["Firlest","Apex",serif] text-base font-semibold tracking-[0.11em] text-[#f2ebe0] sm:text-2xl'>
+          <p className='font-["Firlest","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>
             WE CORDIALLY
           </p>
-          <p className='font-["Firlest","Apex",serif] text-5xl font-semibold tracking-[0.08em] text-[#f4ead3] sm:text-7xl'>
+          <p className='font-["Firlest","Apex",serif] text-5xl font-semibold tracking-[0.12em] text-white sm:text-7xl'>
             INVITE YOU TO
           </p>
 
           <h1
-            className="bg-gradient-to-b from-[#ffd98f] via-[#d7962f] to-[#845514] bg-clip-text px-3 text-[clamp(4rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] text-transparent drop-shadow-[0_8px_20px_rgba(0,0,0,0.65)]"
+            className="font-apex px-3 text-[clamp(4rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158, 108, 16, 1)] sm:text-[clamp(5rem,12vw,10rem)]"
             lang="si"
-            style={{ fontFamily: 'Apex' }}
           >
-            අඩව්ව
+            <span className="fire">අ</span>
+            <span className="fire">ඩ</span>
+            <span className="fire">ව්</span>
+            <span className="fire">ව</span>
           </h1>
 
-          <p className='-mt-2 font-["Firlest","Apex",serif] text-sm tracking-[0.6em] text-[#f5e6b4] sm:text-base'>
+          <p className='-mt-2 text-sm tracking-[0.6em] text-[#f5e6b4] sm:text-base'>
             ADAWWA
           </p>
 
-          <p className='mt-2 max-w-2xl font-["Firlest","Apex",serif] text-xs font-semibold leading-relaxed tracking-[0.06em] text-[#f7f0dc] sm:text-[1.7rem]'>
+          <p className='mt-2 max-w-2xl  text-xs  leading-relaxed tracking-[0.06em] text-white sm:text-[1.6rem]'>
             AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF
             <br />
             SRI LANKAN TROPICAL MUSIC
