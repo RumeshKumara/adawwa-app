@@ -61,13 +61,13 @@ export default function Home() {
             <p className="text-lg tracking-[0.18em] text-yellow-300 sm:text-3xl">- ONWARDS -</p>
           </div>
 
-          <div className='mt-2 font-["Grained","Apex",serif] text-white'>
+          <div className='mt-2 font-["Casta","Apex",serif] text-white'>
             <p className="text-2xl tracking-[0.04em] sm:text-6xl">AT</p>
-            <p className="mt-1 text-4xl font-semibold tracking-[0.10em] sm:text-8xl">THE MAIN</p>
-            <p className="mt-2 text-4xl font-semibold tracking-[0.10em] sm:text-8xl">CANTEEN</p>
+            <p className="mt-1 text-4xl font-extrabold tracking-[0.10em] sm:text-8xl">THE MAIN</p>
+            <p className="mt-2 text-4xl font-extrabold tracking-[0.10em] sm:text-8xl">CANTEEN</p>
           </div>
 
-          <p className='mt-3 max-w-2xl font-["Grained","Apex",serif] text-[0.86rem] font-semibold uppercase leading-tight tracking-[0.04em] text-[#f7e4bf] sm:text-2xl'>
+          <p className='mt-3 max-w-2xl font-["Cinzel Decorative","Apex",serif] text-[0.86rem] uppercase leading-tight tracking-[0.04em] text-[#f7e4bf] sm:text-2xl'>
             IT WILL BE A PLEASURE TO HAVE YOU JOIN WITH US FOR THIS MUSICAL EVENT.
           </p>
 
