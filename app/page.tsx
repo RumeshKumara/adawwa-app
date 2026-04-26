@@ -16,8 +16,8 @@ export default function Home() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const stars: Star[]     = genStars(300);
-    const bats: BatState[]  = genBats(9);
+    const stars: Star[] = genStars(300);
+    const bats: BatState[] = genBats(9);
     const particles: Particle[] = [];
     let treeL: HTMLCanvasElement | null = null;
     let treeR: HTMLCanvasElement | null = null;
@@ -25,22 +25,22 @@ export default function Home() {
     let raf = 0;
 
     const resize = () => {
-      canvas.width  = window.innerWidth;
+      canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      treeL = buildTree('left',  canvas.width, canvas.height);
+      treeL = buildTree('left', canvas.width, canvas.height);
       treeR = buildTree('right', canvas.width, canvas.height);
     };
     resize();
     window.addEventListener('resize', resize);
 
-    const start   = performance.now();
-    let prevNow   = start;
+    const start = performance.now();
+    let prevNow = start;
 
     const loop = () => {
       const now = performance.now();
-      const t   = (now - start) / 1000;
-      const dt  = Math.min(0.05, (now - prevNow) / 1000);
-      prevNow   = now;
+      const t = (now - start) / 1000;
+      const dt = Math.min(0.05, (now - prevNow) / 1000);
+      prevNow = now;
 
       if (treeL && treeR) {
         /* Spawn golden particles when chest opens */
@@ -66,10 +66,10 @@ export default function Home() {
     return () => { window.removeEventListener('resize', resize); cancelAnimationFrame(raf); };
   }, []);
 
-  const mainCls   = showIntro ? 'opacity-0 translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0 pointer-events-auto';
+  const mainCls = showIntro ? 'opacity-0 translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0 pointer-events-auto';
   const loaderCls = showIntro ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none';
   const revealCls = showIntro ? '' : 'invitation-content-enter';
-  const torchCls  = showIntro ? '' : 'invitation-torch-enter';
+  const torchCls = showIntro ? '' : 'invitation-torch-enter';
 
   return (
     <>
@@ -97,11 +97,11 @@ export default function Home() {
           <p className='font-["Firlest","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>WE CORDIALLY</p>
           <p className='font-["Firlest","Apex",serif] text-5xl font-semibold tracking-[0.12em] text-white sm:text-7xl'>INVITE YOU TO</p>
 
-          <h1 className="font-apex px-3 text-[clamp(4rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158,108,16,1)] sm:text-[clamp(5rem,12vw,10rem)]" lang="si">
-            <span className="fire">අ</span><span className="fire">ඩ</span><span className="fire">ව්</span><span className="fire">ව</span>
+          <h1 className="font-firlest px-3 text-[clamp(8rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] drop-shadow-[0_8px_20px_rgba(158,108,16,1)] sm:text-[clamp(5rem,12vw,10rem)]" lang="si">
+            <span className="fire">w</span><span className="fire">v</span><span className="fire">js</span><span className="fire">j</span>
           </h1>
 
-          <p className='-mt-2 text-sm tracking-[0.6em] text-[#f5e6b4] sm:text-base'>ADAWWA</p>
+          <p className='-mt-6 text-sm tracking-[1.3em] text-[#f5e6b4] sm:text-base'>ADAWWA</p>
 
           <p className='mt-2 max-w-2xl text-xs leading-relaxed tracking-[0.06em] text-white sm:text-[1.6rem]'>
             AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF<br />SRI LANKAN TROPICAL MUSIC
