@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 2800); // Wait for the 2.8s sigil loading to finish
+    }, 4000); // Wait for the 4.0s sigil loading to finish
     return () => clearTimeout(timer);
   }, []);
 

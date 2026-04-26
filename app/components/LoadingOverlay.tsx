@@ -9,7 +9,7 @@ export default function LoadingOverlay() {
   useEffect(() => {
     setMounted(true);
     // Extends the loader slightly to let the realistic effects shine
-    const timer = setTimeout(() => setVisible(false), 2800);
+    const timer = setTimeout(() => setVisible(false), 4000);
     return () => clearTimeout(timer);
   }, []);
 

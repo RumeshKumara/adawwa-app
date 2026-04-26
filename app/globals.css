@@ -570,7 +570,7 @@ body {
   align-items: center;
   justify-content: center;
   background: #02000a;
-  animation: svgLoaderFadeOut 0.55s ease-in 2.4s forwards;
+  animation: svgLoaderFadeOut 0.55s ease-in 3.45s forwards;
   pointer-events: none;
 }
 
@@ -673,7 +673,7 @@ body {
   inset: 0;
   background: #02000a;
   opacity: 0;
-  animation: svgFadeOutCover 0.35s ease-in 2.25s forwards;
+  animation: svgFadeOutCover 0.35s ease-in 3.65s forwards;
 }
 
 /* ══════════════════════════════════
