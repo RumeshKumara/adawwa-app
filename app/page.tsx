@@ -58,7 +58,7 @@ export default function Home() {
           <div className='mt-2 font-["Grained","Apex",serif] text-white'>
             <p className="text-2xl tracking-[0.04em] sm:text-6xl">FROM</p>
             <p className="mt-1 text-6xl font-semibold tracking-[0.08em] sm:text-8xl">06.30 <span className='text-2xl -ml-4 text-yellow-300'>P.M.</span></p>
-            <p className="text-lg tracking-[0.18em] text-yellow-400 sm:text-3xl">ONWARDS</p>
+            <p className="text-lg tracking-[0.18em] text-yellow-300 sm:text-3xl">- ONWARDS -</p>
           </div>
 
           <div className='mt-2 font-["Grained","Apex",serif] text-white'>
