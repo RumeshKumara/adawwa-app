@@ -70,7 +70,7 @@ export default function Home() {
           </div>
 
           <div className='mt-2 font-["Casta","Apex",serif] text-white'>
-            <p className="text-2xl tracking-[0.04em] sm:text-6xl">AT</p>
+            <p className="text-2xl tracking-[0.04em] sm:text-6xl font-[grained]">AT</p>
             <p className="mt-1 text-4xl font-extrabold tracking-[0.10em] sm:text-8xl">THE MAIN</p>
             <p className="mt-2 text-4xl font-extrabold tracking-[0.10em] sm:text-8xl">CANTEEN</p>
           </div>
