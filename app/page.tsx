@@ -52,7 +52,7 @@ export default function Home() {
 
           <div className='mt-2 font-["Grained","Apex",serif] text-white'>
             <p className="text-2xl  tracking-[0.04em] sm:text-6xl">ON</p>
-            <p className="mt-4 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-xl text-yellow-400 mx-3 tracking-tighter -tracking-wider absolute  top-10 transform -translate-x-1/2 ">TH</span> <span className='ml-4 text-4xl'>OF APRIL</span></p>
+            <p className="mt-4 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-xl text-yellow-300 mx-3 tracking-tighter -tracking-wider absolute  top-10 transform -translate-x-1/2 ">TH</span> <span className='ml-4 text-4xl'>OF APRIL</span></p>
           </div>
 
           <div className='mt-2 font-["Grained","Apex",serif] text-white'>
