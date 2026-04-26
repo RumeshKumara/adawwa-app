@@ -36,8 +36,8 @@ export default function Home() {
         </div>
 
         <section className={`invitation-content relative mx-auto flex min-h-[calc(100dvh-4rem)] max-w-3xl flex-col items-center justify-center gap-3 pt-14 sm:gap-4 sm:pt-20 ${revealCls}`}>
-          <p className='font-["Firlest","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>WE CORDIALLY</p>
-          <p className='font-["Firlest","Apex",serif] text-4xl font-semibold tracking-[0.10em] text-white sm:text-7xl'>INVITE YOU TO</p>
+          <p className='font-["Grained","Apex",serif] text-base font-semibold tracking-[0.11em] text-white sm:text-2xl'>WE CORDIALLY</p>
+          <p className='font-["Grained","Apex",serif] text-3xl font-semibold tracking-[0.10em] text-white sm:text-6xl'>INVITE YOU TO</p>
 
           <h1 className='relative isolate font-["Apex"] px-3 text-[clamp(6rem,16vw,8.7rem)] leading-[0.95] tracking-[0.02em] sm:text-[clamp(5rem,12vw,10rem)]' >
             <div className="fade-lines-bg" aria-hidden="true" />
@@ -50,24 +50,24 @@ export default function Home() {
             AN ENCHANTING EVENING CELEBRATING THE RICH HERITAGE OF<br />SRI LANKAN TROPICAL MUSIC
           </p>
 
-          <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
-            <p className="text-4xl  tracking-[0.04em] sm:text-6xl">ON</p>
-            <p className="mt-4 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-2xl text-yellow-400 mx-3 tracking-tighter -tracking-wider absolute  top-10 transform -translate-x-1/2 ">th</span> <span className='ml-4'>OF APRIL</span></p>
+          <div className='mt-2 font-["Grained","Apex",serif] text-white'>
+            <p className="text-2xl  tracking-[0.04em] sm:text-6xl">ON</p>
+            <p className="mt-4 text-6xl font-semibold tracking-[0.06em] sm:text-8xl">30<span className="font-small text-xl text-yellow-400 mx-3 tracking-tighter -tracking-wider absolute  top-10 transform -translate-x-1/2 ">TH</span> <span className='ml-4 text-4xl'>OF APRIL</span></p>
           </div>
 
-          <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
-            <p className="text-4xl tracking-[0.04em] sm:text-6xl">FROM</p>
-            <p className="mt-1 text-6xl font-semibold tracking-[0.08em] sm:text-8xl">06.30 P.M.</p>
+          <div className='mt-2 font-["Grained","Apex",serif] text-white'>
+            <p className="text-2xl tracking-[0.04em] sm:text-6xl">FROM</p>
+            <p className="mt-1 text-6xl font-semibold tracking-[0.08em] sm:text-8xl">06.30 <span className='text-2xl -ml-4 text-yellow-300'>P.M.</span></p>
             <p className="text-lg tracking-[0.18em] text-yellow-400 sm:text-3xl">ONWARDS</p>
           </div>
 
-          <div className='mt-2 font-["Firlest","Apex",serif] text-white'>
-            <p className="text-4xl tracking-[0.04em] sm:text-6xl">AT</p>
-            <p className="mt-1 text-6xl font-semibold tracking-[0.10em] sm:text-8xl">THE MAIN</p>
-            <p className="mt-2 text-6xl font-semibold tracking-[0.10em] sm:text-8xl">CANTEEN</p>
+          <div className='mt-2 font-["Grained","Apex",serif] text-white'>
+            <p className="text-2xl tracking-[0.04em] sm:text-6xl">AT</p>
+            <p className="mt-1 text-4xl font-semibold tracking-[0.10em] sm:text-8xl">THE MAIN</p>
+            <p className="mt-2 text-4xl font-semibold tracking-[0.10em] sm:text-8xl">CANTEEN</p>
           </div>
 
-          <p className='mt-3 max-w-3xl font-["Firlest","Apex",serif] text-[0.86rem] font-semibold uppercase leading-tight tracking-[0.04em] text-[#f7e4bf] sm:text-3xl'>
+          <p className='mt-3 max-w-2xl font-["Grained","Apex",serif] text-[0.86rem] font-semibold uppercase leading-tight tracking-[0.04em] text-[#f7e4bf] sm:text-2xl'>
             IT WILL BE A PLEASURE TO HAVE YOU JOIN WITH US FOR THIS MUSICAL EVENT.
           </p>
 
