@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Amethysta, Caesar_Dressing } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +10,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const amethysta = Amethysta({
+  variable: "--font-amethysta",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const caesarDressing = Caesar_Dressing({
+  variable: "--font-caesar-dressing",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${amethysta.variable} ${caesarDressing.variable} antialiased`}
     >
       <body>{children}</body>
     </html>
