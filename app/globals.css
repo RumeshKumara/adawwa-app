@@ -1613,7 +1613,8 @@ html {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: yellowShineSweep 3s linear infinite;
+  animation: yellowShineSweep 3s linear infinite, scalePulse 2.5s ease-in-out infinite alternate;
+  will-change: transform, background-position;
 }
 
 @keyframes yellowShineSweep {
@@ -1622,5 +1623,14 @@ html {
   }
   100% {
     background-position: -200% center;
+  }
+}
+
+@keyframes scalePulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.04);
   }
 }
