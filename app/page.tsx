@@ -118,7 +118,7 @@ export default function Home() {
           </div> */}
 
           <div className='mt-2 font-["Casta","Apex",serif] text-white'>
-            <p className="text-2xl tracking-[0.04em] sm:text-6xl font-[grained]">AT</p>
+            <p className="text-3xl tracking-[0.04em] sm:text-6xl font-[Casta] font-semibold">AT</p>
             <p className="mt-1 w-fit mx-auto text-5xl font-extrabold sm:text-8xl animate-yellow-shine">THE MAIN</p>
             <p className="mt-2 w-fit mx-auto text-5xl font-extrabold sm:text-8xl animate-yellow-shine">CAFETERIA</p>
           </div>
